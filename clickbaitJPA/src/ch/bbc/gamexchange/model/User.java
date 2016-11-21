@@ -16,7 +16,8 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({ 
 		@NamedQuery(name = "user.findAll", query = "SELECT u FROM User u"),
-		@NamedQuery(name = "user.findByEmailAndPassword", query = "SELECT u FROM User u WHERE u.userEmail = :custMail AND u.userPassword = :custPW") })
+		@NamedQuery(name = "user.findByEmailAndPassword", query = "SELECT u FROM User u WHERE u.userEmail = :custMail AND u.userPassword = :custPW") 
+	})
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -50,7 +51,6 @@ public class User implements Serializable {
 	}
 
 	public void setUserEmail(String userEmail) {
-		System.err.println("Email was set");
 		this.userEmail = userEmail;
 	}
 
@@ -59,7 +59,6 @@ public class User implements Serializable {
 	}
 
 	public void setUserPassword(String userPassword) {
-		System.err.println("Password was set");
 		this.userPassword = userPassword;
 	}
 

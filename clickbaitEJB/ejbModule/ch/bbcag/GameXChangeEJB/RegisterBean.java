@@ -27,7 +27,7 @@ public class RegisterBean implements RegisterBeanLocal {
 	@Override
 	public String save(User user) {
 		try {
-			em.createNativeQuery("INSERT INTO clickbaitdb.user (userName, userEmail, userPassword, birthDate) VALUES ('testName', + '" + user.getUserEmail() + "','" + user.getUserPassword()  + "', '12.12.2012');").executeUpdate();
+			em.createNativeQuery("INSERT INTO clickbaitdb.user (userName, userEmail, userPassword, birthDate, infos) VALUES ('" + user.getUserName() + "','" + user.getUserEmail() + "','" + user.getUserPassword()  + "','" + user.getBirthDate() + "','" + user.getInfos() + "');").executeUpdate();
 //			em.persist(user);
 		} catch (Exception e) {
 			LOGGER.warning("User could not be registered: " + e);

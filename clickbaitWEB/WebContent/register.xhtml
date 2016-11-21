@@ -5,6 +5,12 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:body>
 	<h:form>
+		<h:outputLabel for="userName" value="UserName: " />
+		<h:inputText id="userName" type="text"
+			value="#{registerController.user.userName}" required="true"
+			requiredMessage="Bitte UserName eingeben">
+		</h:inputText>
+
 		<h:outputLabel for="email" value="E-mail: " />
 		<h:inputText id="email" type="email"
 			value="#{registerController.user.userEmail}" required="true"
@@ -16,6 +22,18 @@
 			value="#{registerController.user.userPassword}" required="true"
 			requiredMessage="Bitte Passwort eingeben">
 		</h:inputSecret>
+
+		<h:outputLabel for="birthDate" value="BirthDate: " />
+		<h:inputText id="birthDate" type="date"
+			value="#{registerController.user.birthDate}" required="true"
+			requiredMessage="Bitte Geburtsdatum eingeben">
+		</h:inputText>
+		
+		<h:outputLabel for="infos" value="Infos: " />
+		<h:inputText id="infos" type="text"
+			value="#{registerController.user.infos}" required="false"
+			requiredMessage="Bitte Infos eingeben:">
+		</h:inputText>
 
 		<h:message for="password" style="color: red;" />
 
