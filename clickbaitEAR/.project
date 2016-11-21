@@ -3,9 +3,9 @@
 	<name>clickbaitEAR</name>
 	<comment></comment>
 	<projects>
-		<project>GameXChangeJPA</project>
-		<project>GameXChangeWEB</project>
-		<project>GameXChangeEJB</project>
+		<project>clickbaitWEB</project>
+		<project>clickbaitEJB</project>
+		<project>clickbaitJPA</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

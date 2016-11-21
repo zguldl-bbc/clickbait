@@ -6,19 +6,17 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import ch.bbc.gamexchange.model.Customer;
 
-/**
- * Session Bean implementation class GameBean
- */
+import ch.bbc.gamexchange.model.User;
+
 @Stateless
 public class RegisterBean implements RegisterBeanLocal {
-	
+
 	private final static Logger LOGGER = Logger.getLogger(RegisterBean.class.getName());
-	
+
 	@PersistenceContext
 	EntityManager em;
-	
+
 	/**
 	 * Default constructor.
 	 */
@@ -27,31 +25,40 @@ public class RegisterBean implements RegisterBeanLocal {
 	}
 
 	@Override
-	public void save(Customer c) {
+	public String save(User user) {
 		try {
-			em.persist(c);
+			em.createNativeQuery("INSERT INTO clickbaitdb.user (userName, userEmail, userPassword, birthDate) VALUES ('testName', + '" + user.getUserEmail() + "','" + user.getUserPassword()  + "', '12.12.2012');").executeUpdate();
+//			em.persist(user);
 		} catch (Exception e) {
-			System.out.println("error");
+			LOGGER.warning("User could not be registered: " + e);
 		}
-		LOGGER.info("User succesfully registered.");
+		LOGGER.info("User " + user.getUserEmail() + " has been registered.");
+		return "";
 	}
 
-	public boolean login(Customer c) {
-		LOGGER.info("User succesfully logged in.");
-		return em.createNamedQuery("Customer.findByEmailAndPassword")
-				.setParameter("custMail", c.getEmail())
-				.setParameter("custPW", c.getPassword())
-				.getResultList()
-				.size() > 0;
-				
-	}
 	@Override
-	public List<Customer> getAllCustomer() {
-		List<Customer> customer = em.createNamedQuery("Customer.findAll").getResultList();
-		for (int i = 0; i < customer.size(); i++) {
-			Customer c = customer.get(i);
-			System.out.println(c.getEmail() + " | " + c.getPassword()  + " | " + c.getBalance());
+	public String login(User user) {
+		try {
+			if (em.createNamedQuery("User.findByEmailAndPassword").setParameter("custMail", user.getUserEmail())
+					.setParameter("custPW", user.getUserPassword()).getResultList().size() > 0) {
+				LOGGER.info("User " + user.getUserEmail() + " successfully logged in.");
+			} else
+				LOGGER.info("Email or password incorrect.");
+		} catch (Exception e) {
+			LOGGER.warning("User could not be logged in: " + e);
 		}
-		return customer;
+		return "";
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getAllUser() {
+		List<User> user = em.createNamedQuery("Customer.findAll").getResultList();
+		for (int i = 0; i < user.size(); i++) {
+			User u = user.get(i);
+			System.out.println("email: " + u.getUserEmail() + " password: " + u.getUserPassword());
+		}
+		return user;
+	}
+
 }

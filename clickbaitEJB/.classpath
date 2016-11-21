@@ -12,11 +12,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="src" path="/GameXChangeJPA"/>
-	<classpathentry kind="lib" path="C:/glassfish4/glassfish/modules/bean-validator.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="http://docs.oracle.com/javaee/7/api/"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/clickbaitJPA"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

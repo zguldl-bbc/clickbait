@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import ch.bbc.gamexchange.model.Customer;
+import ch.bbc.gamexchange.model.User;
 import ch.bbcag.GameXChangeEJB.RegisterBeanLocal;
 
 @Named
@@ -19,30 +19,30 @@ public class RegisterController implements Serializable {
 
 	@EJB
 	private RegisterBeanLocal registerBean;
-
+	
 	@Inject
-	private Customer customer;
+	private User user;
 
 	public String save() {
-		registerBean.save(customer);
+		registerBean.save(user);
 		return "";
 	}
 
 	public String login() {
-		registerBean.login(customer);
+		registerBean.login(user);
 		return "";
 	}
 	
-	public List<Customer> getAllCustomer() {
-		List<Customer> customer = registerBean.getAllCustomer();
+	public List<User> getAllUser() {
+		List<User> customer = registerBean.getAllUser();
 		return customer;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setUser(User user) {
+		this.user = user;
 	}
 }
