@@ -23,6 +23,7 @@
 			<attribute name="javadoc_location" value="http://docs.oracle.com/javaee/7/api/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/BootsFaces-OSP-1.0.0-dist.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/clickbaitEJB"/>
 	<classpathentry kind="lib" path="D:/Users/zstaur/glassfish-4.1/glassfish4/glassfish/modules/javax.ejb-api.jar">
 		<attributes>

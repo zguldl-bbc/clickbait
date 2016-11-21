@@ -39,8 +39,7 @@ public class RegisterBean implements RegisterBeanLocal {
 	@Override
 	public String login(User user) {
 		try {
-			if (em.createNamedQuery("User.findByEmailAndPassword").setParameter("custMail", user.getUserEmail())
-					.setParameter("custPW", user.getUserPassword()).getResultList().size() > 0) {
+			if (em.createNativeQuery("SELECT * FROM clickbaitdb.user where userEmail='"  + user.getUserEmail() + "' AND userPassword='" + user.getUserPassword() + "';").getResultList().size() > 0) {
 				LOGGER.info("User " + user.getUserEmail() + " successfully logged in.");
 			} else
 				LOGGER.info("Email or password incorrect.");

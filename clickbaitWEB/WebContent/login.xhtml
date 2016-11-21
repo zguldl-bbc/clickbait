@@ -1,4 +1,4 @@
-<?xml-stylesheet href="style.css" type="text/css"?>
+<?xml-stylesheet href="css/style.css" type="text/css"?>
 <h:html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -7,13 +7,13 @@
 	<h:form>
 		<h:outputLabel for="email" value="E-mail: " />
 		<h:inputText id="email" type="email"
-			value="#{registerController.customer.email}" required="true"
+			value="#{registerController.user.userEmail}" required="true"
 			requiredMessage="Bitte E-Mail eingeben">
 		</h:inputText>
 
 		<h:outputLabel for="password" value="Passwort: " />
 		<h:inputSecret id="password" type="password"
-			value="#{registerController.customer.password}" required="true"
+			value="#{registerController.user.userPassword}" required="true"
 			requiredMessage="Bitte Passwort eingeben">
 		</h:inputSecret>
 

@@ -6,7 +6,6 @@ import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 
 /**
  * The persistent class for the customer database table.
@@ -15,8 +14,8 @@ import javax.persistence.NamedQuery;
 @Named
 @Entity
 @NamedQueries({ 
-		@NamedQuery(name = "user.findAll", query = "SELECT u FROM User u"),
-		@NamedQuery(name = "user.findByEmailAndPassword", query = "SELECT u FROM User u WHERE u.userEmail = :custMail AND u.userPassword = :custPW") 
+//		@NamedQuery(name = "user.findAll", query = "SELECT u FROM User u"),
+//		@NamedQuery(name="user.findByEmailAndPassword", query ="SELECT u FROM User u WHERE u.userEmail = :email AND u.userPassword = :password")
 	})
 
 public class User implements Serializable {
