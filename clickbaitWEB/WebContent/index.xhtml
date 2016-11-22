@@ -9,28 +9,6 @@
     </h:head>
     <!-- Add 50px padding top to the body for the navbar -->
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        <b:navBar brand="clickbait" brandHref="#" inverse="true" fixed="top">
-            <b:navbarLinks>
-                <b:navLink value="Home" href="#"></b:navLink>
-                <b:navLink value="Images" href="#"></b:navLink>
-                <b:navLink value="SignUp" href="register.jsf"></b:navLink>
-                <b:dropMenu value="Profile">
-                    <b:navLink value="Playlists" href="#"></b:navLink>
-                    <b:navLink value="Infos" href="#"></b:navLink>
-                </b:dropMenu>
-            </b:navbarLinks>
-            <h:form styleClass="navbar-form navbar-right">
-                <div class="form-group">
-                    <b:inputText placeholder="Email" fieldSize="sm" id="email" type="email" value="#{registerController.user.userEmail}" required="true"/>
-                </div>
-                <div class="form-group">
-                    <b:inputSecret placeholder="Password" fieldSize="sm" id="password" type="password"
-				value="#{registerController.user.userPassword}" required="true"/>
-                </div> 
-                #{' '}
-                <b:commandButton value="Sign in" look="success" icon="chevron-right" iconAlign="right" action="#{registerController.login()}"/>
-            </h:form>
-        </b:navBar>
         <b:jumbotron>
             <b:container>
                 <h1>clickbait, share, explore, enjoy!</h1>
@@ -57,11 +35,7 @@
                     <p><b:button outcome="" value="View details »"/></p>
                 </b:column>
             </b:row>
-            <hr/>
-            <footer>
-            <p>Raphael Stauffacher, Lion Guldimann GmbH Inc. AG ©™</p>
-            </footer>
+            <ui:include src="footer.xhtml" />
         </b:container>
-
     </h:body>
 </html>

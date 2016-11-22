@@ -17,7 +17,6 @@ import javax.persistence.NamedQueries;
 //		@NamedQuery(name = "user.findAll", query = "SELECT u FROM User u"),
 //		@NamedQuery(name="user.findByEmailAndPassword", query ="SELECT u FROM User u WHERE u.userEmail = :email AND u.userPassword = :password")
 	})
-
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
