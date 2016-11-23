@@ -1,0 +1,2 @@
+INDEX VERSION 1.129+D:\Users\zguldl\Documents\GitHub\clickbait\.metadata\.plugins\org.eclipse.jdt.core
+389036005.index
